@@ -38,7 +38,7 @@ class IvarMatrix:
         Doing two reads of files because I am tired and this can be cached later if it is insightful
         """
         st = datetime.datetime.now()
-        files = glob.glob(os.path.join(self.glob_dir, "*SE*.tsv")) # ivar spits out a tsv
+        files = glob.glob(os.path.join(self.glob_dir, "*WE*.tsv")) # ivar spits out a tsv
         for i in files:
             fp = os.path.join(self.glob_dir, i)
             if os.path.isfile(fp):
@@ -61,7 +61,7 @@ class IvarMatrix:
         df1 = df1.where(df1 > percent_sum)
         df = df[[i for i in df1.index if df1[i] > percent_sum]]
         #df = df.loc[df["sum"] >= percent_sum]
-        df.to_csv("./test_data/test_mlst_12encoded_5per_SE.csv")
+        df.to_csv("./test_data/test_mlst_12encoded_5per_WE.csv")
         end = datetime.datetime.now()
         print(f"Program took {end - st} seconds")
     
